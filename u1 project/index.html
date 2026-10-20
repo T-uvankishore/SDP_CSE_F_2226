@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f1">
+  <title>2 WARDS FUTURE — Graduate opportunities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="2 Wards Future home">
+      <span class="brand-mark" aria-hidden="true">2</span>
+      <span>2 WARDS FUTURE</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link is-active" id="all-tab" type="button" aria-pressed="true">Find a job</button>
+      <button class="nav-link" id="saved-tab" type="button" aria-pressed="false">Saved <span class="saved-count" id="saved-count">0</span></button>
+    </nav>
+    <a class="header-link" href="#job-results">Explore openings <span aria-hidden="true">↗</span></a>
+    <button class="account-button" id="account-button" type="button">Sign in</button>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> THE GRADUATE JOB BOARD</p>
+        <h1 id="page-title">Your next chapter<br>starts <span>here.</span></h1>
+        <p class="intro-description">Find your first role, build real experience, and get your career moving.</p>
+      </div>
+      <div class="intro-note" aria-label="Job board information">
+        <span class="note-spark" aria-hidden="true">✳</span>
+        <p><strong>Made for new grads</strong><br>Early-career roles, all in one place.</p>
+      </div>
+    </section>
+
+    <form class="search-panel" id="search-form" role="search">
+      <label class="search-field">
+        <span class="field-icon" aria-hidden="true">⌕</span>
+        <span class="visually-hidden">Role, skill, or company</span>
+        <input id="keyword-search" type="search" placeholder="Role, skill, or company" autocomplete="off">
+      </label>
+      <span class="search-divider" aria-hidden="true"></span>
+      <label class="search-field location-field">
+        <span class="field-icon location-icon" aria-hidden="true">⌖</span>
+        <span class="visually-hidden">City or country</span>
+        <input id="location-search" type="search" placeholder="City or state in India" autocomplete="off">
+      </label>
+      <button class="search-button" type="submit">Search jobs <span aria-hidden="true">↗</span></button>
+    </form>
+
+    <div class="board-heading" id="job-results">
+      <div>
+        <p class="eyebrow board-eyebrow">A GOOD PLACE TO BEGIN</p>
+        <h2 id="results-title">Graduate opportunities across India <span class="demo-label">SAMPLE LISTINGS</span></h2>
+      </div>
+      <p class="board-subtitle">Explore early-career roles in cities across India.</p>
+    </div>
+
+    <div class="board-layout">
+      <aside class="filters" aria-label="Filter opportunities">
+        <div class="filter-heading">
+          <h3>Refine your search</h3>
+          <button id="clear-filters" class="clear-button" type="button">Clear all</button>
+        </div>
+
+        <fieldset class="filter-group">
+          <legend>Opportunity type</legend>
+          <label class="check-row"><input type="checkbox" name="type" value="Graduate programme"><span class="custom-check"></span><span>Graduate programme</span></label>
+          <label class="check-row"><input type="checkbox" name="type" value="Entry-level"><span class="custom-check"></span><span>Entry-level</span></label>
+          <label class="check-row"><input type="checkbox" name="type" value="Internship"><span class="custom-check"></span><span>Internship</span></label>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Career area</legend>
+          <label class="check-row"><input type="checkbox" name="area" value="Technology"><span class="custom-check"></span><span>Technology</span></label>
+          <label class="check-row"><input type="checkbox" name="area" value="Business"><span class="custom-check"></span><span>Business</span></label>
+          <label class="check-row"><input type="checkbox" name="area" value="Design"><span class="custom-check"></span><span>Design</span></label>
+          <label class="check-row"><input type="checkbox" name="area" value="Science"><span class="custom-check"></span><span>Science</span></label>
+        </fieldset>
+
+        <fieldset class="filter-group last-filter-group">
+          <legend>Work style</legend>
+          <label class="check-row"><input type="checkbox" name="work" value="Remote"><span class="custom-check"></span><span>Remote</span></label>
+          <label class="check-row"><input type="checkbox" name="work" value="Hybrid"><span class="custom-check"></span><span>Hybrid</span></label>
+          <label class="check-row"><input type="checkbox" name="work" value="On-site"><span class="custom-check"></span><span>On-site</span></label>
+        </fieldset>
+        <p class="filters-footnote">New opportunities added throughout the week.</p>
+      </aside>
+
+      <section class="results" aria-label="Job results">
+        <div class="results-toolbar">
+          <p id="result-count" class="result-count" aria-live="polite">Showing opportunities</p>
+          <label class="sort-control"><span>Sort:</span>
+            <select id="sort-select" aria-label="Sort opportunities">
+              <option value="recent">Most recent</option>
+              <option value="salary">Salary: high to low</option>
+              <option value="company">Company A–Z</option>
+            </select>
+          </label>
+        </div>
+        <div class="job-list" id="job-list" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-mark" aria-hidden="true">↗</span>
+          <h3>No roles found just yet</h3>
+          <p>Try another search or clear a filter to see more opportunities.</p>
+          <button class="empty-clear" id="empty-clear" type="button">Clear search and filters</button>
+        </div>
+        <p class="data-note">These are sample listings, not verified live vacancies. Check each employer’s careers site for current openings and details.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">2 WARDS FUTURE</a>
+    <p>Every career has a beginning.</p>
+    <a href="#top" class="back-top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="account-dialog" id="account-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">×</button>
+    <section class="dialog-step" id="login-step">
+      <p class="eyebrow dialog-eyebrow">YOUR 2 WARDS FUTURE ACCOUNT</p>
+      <h2 id="dialog-title">Welcome to 2 WARDS FUTURE</h2>
+      <p class="dialog-description">Continue with your email, then tell us a little about your studies.</p>
+      <form id="login-form">
+        <label class="form-field">
+          <span>Email address</span>
+          <input id="account-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </label>
+        <button class="dialog-submit" type="submit">Continue <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="demo-disclaimer">Demo sign-in: your profile is saved in this browser only.</p>
+    </section>
+
+    <section class="dialog-step" id="profile-step" hidden>
+      <p class="eyebrow dialog-eyebrow">A LITTLE ABOUT YOU</p>
+      <h2 id="profile-title">Complete your profile</h2>
+      <p class="dialog-description">Help us make your graduate job search more relevant.</p>
+      <form id="profile-form">
+        <div class="profile-fields">
+          <label class="form-field">
+            <span>Full name</span>
+            <input name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          </label>
+          <label class="form-field">
+            <span>Age</span>
+            <input name="age" type="number" min="16" max="100" inputmode="numeric" placeholder="e.g. 22" required>
+          </label>
+          <label class="form-field full-field">
+            <span>College / university name</span>
+            <input name="college" type="text" autocomplete="organization" placeholder="Your college or university" required>
+          </label>
+          <label class="form-field">
+            <span>Degree</span>
+            <input name="degree" type="text" placeholder="e.g. BSc Computer Science" required>
+          </label>
+          <label class="form-field">
+            <span>Branch / major</span>
+            <input name="branch" type="text" placeholder="e.g. Computer Science" required>
+          </label>
+          <label class="form-field">
+            <span>Passed-out year</span>
+            <input name="graduationYear" type="number" min="1980" max="2050" inputmode="numeric" placeholder="e.g. 2026" required>
+          </label>
+          <label class="form-field">
+            <span>Your location</span>
+            <input name="location" type="text" autocomplete="address-level2" placeholder="City, country" required>
+          </label>
+        </div>
+        <button class="dialog-submit" type="submit">Save profile <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+  </dialog>
+</body>
+</html>
